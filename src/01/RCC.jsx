@@ -32,6 +32,19 @@ class Circle extends Shape {
 let c = new Circle(0, 0, 10);
 c.area(); //100
 
+function parse(qs) {
+  const queryString = qs.substr(1);
+  const chunks = queryString.split('&');
+  let reuslt = {};
+  chunks.forEach((chunk) => {
+    const parts = chunk.split('=');
+    const key = parts[0];
+    const value = Number.isNaN(Number(parts[1])) ? parts[1] : Number(parts[1]);
+    reuslt[key] = value;
+  });
+  return reuslt;
+}
+
 class RCC extends Component {
   render() {
     let text = '';
