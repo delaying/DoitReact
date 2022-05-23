@@ -1,11 +1,14 @@
-import './App.css';
+import React, { Component } from 'react';
+import TodayPlan from './03/TodayPlan';
 
-function App() {
-  return (
-    <>
-      <img src="naver.com" />
-    </>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <TodayPlan />
+      </div>
+    );
+  }
 }
 
 export default App;
