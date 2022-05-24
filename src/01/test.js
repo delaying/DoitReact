@@ -38,6 +38,7 @@ work1and2()
   .then((msg3) => {
     console.log('done after 600ms:' + msg3);
   });
+
 class test extends Component {
   render() {
     return <div></div>;

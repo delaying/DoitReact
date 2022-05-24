@@ -13,6 +13,12 @@ class ChildComponent extends Component {
   }
 }
 
+export class PureComponent extends React.component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
+  }
+}
+
 ChildComponent.propTypes = {
   //객체 프로퍼티
   //   객체 프로퍼티의 자료형은 PropTypes의 shape를 사용하여 정의함.
