@@ -39,10 +39,8 @@ work1and2()
     console.log('done after 600ms:' + msg3);
   });
 
-class test extends Component {
-  render() {
-    return <div></div>;
-  }
+function test() {
+  return <div></div>;
 }
 
 export default test;
