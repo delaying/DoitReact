@@ -1,5 +1,20 @@
 import React, { Component } from 'react';
 
+function compose() {
+  const funcArr = Array.prototype.slice.call(arguments);
+  return funcArr.reduce(
+    function (prevFunc, nextFunc) {
+      return function () {
+        const args = Array.prototype.slice.call(arguments);
+        return nextFunc(prevFunc.apply(null, args));
+      };
+    },
+    function (k) {
+      return k;
+    },
+  );
+}
+
 function work1(onDone) {
   setTimeout(() => onDone('작업1 완료!'), 100);
 }
