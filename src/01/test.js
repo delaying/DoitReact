@@ -14,6 +14,14 @@ function compose() {
     },
   );
 }
+[multiplyTwo, multiplyThree].reduce(
+  function (prevFunc, netFunc) {
+    return function (value) {};
+  },
+  function (k) {
+    return k;
+  },
+);
 
 function work1(onDone) {
   setTimeout(() => onDone('작업1 완료!'), 100);
