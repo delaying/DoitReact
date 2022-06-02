@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import HomePageComponent from './06/HomePageComponent';
+
+import SearchFilterReduxApp from './07/SearchFilterReduxApp';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <HomePageComponent />
+        <SearchFilterReduxApp />
       </div>
     );
   }
