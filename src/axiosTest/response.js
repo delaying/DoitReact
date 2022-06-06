@@ -32,3 +32,41 @@ Axios.get('/user/12345')
 
 //전역 Axios 기본값
 Axios.defaults.baseURL='http://api.example.com';
+
+//인터셉터
+//then또는 catch로 처리되기 전에 요청과 응답을 가로챌 수 있음.
+
+//요청 인터셉터 추가하기
+Axios.interceptors.request.uese(function(config){
+    //요청이 전달되기 전에 작업 수행
+    return config;
+},function(error){
+    //요청 오류가 있는 작업 수행
+        return Promise.reject(error);
+});
+
+//응답 인터셉터 추가하기
+Axios.interceptors.response.use(function (response){
+    //2xx 범위에 있는 상태 코드는 이 함수를 트리거함.
+    //응답 데이터가 있는 작업 수행
+    return response;
+},function(error){
+    //2xx 외의 범위에 있는 상태 코드는 이 함수를 트리거함.
+    //응답 오류가 있는 작업 수행
+    return Promise.reject(error);
+});
+
+//에러핸들링
+Axios.get('/user/12345')
+.catch(function (error){
+    if(error.response){
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+    }else if(error.request){
+        console.log(error.request);
+    }else{
+        console.log('Error', error.message);
+    }
+    console.log(error.config);
+})
