@@ -18,6 +18,9 @@ class AppRouter extends Component {
             <Route path="/logout">
               <Logout />
             </Route>
+            <Route path="/mypage">
+              <Mypage />
+            </Route>
           </Switch>
         </Router>
       </div>
